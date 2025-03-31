@@ -1,0 +1,8 @@
+SQLAlchemy==2.0.40
+fastapi==0.115.12
+pydantic-settings==2.8.1
+uvicorn==0.34.0
+asyncpg==0.30.0
+alembic==1.15.2
+pydantic==2.11.1
+pydantic[email]
