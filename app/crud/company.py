@@ -13,12 +13,18 @@ from app.exceptions import (
 async def get_company(db: AsyncSession, company_id: str) -> Optional[CompanyOut]:
     """Отримати компанію за id"""
     result = await db.execute(select(Company).where(Company.company_id == company_id))
-    return CompanyOut.model_validate(result.scalar())
+    company = result.scalar_one_or_none()
+    if not company:
+        return None
+    return CompanyOut.model_validate(company)
 
 async def get_company_by_email(db: AsyncSession, company_email: str) -> Optional[CompanyOut]:
     """Отримати компанію за email"""
     result = await db.execute(select(Company).where(Company.company_email == company_email))
-    return CompanyOut.model_validate(result.scalar())
+    company = result.scalar_one_or_none()
+    if not company:
+        return None
+    return CompanyOut.model_validate(company)
 
 async def create_company(db: AsyncSession, company_in: CompanyCreate) -> CompanyOut:
     """Створити компанію"""
@@ -67,7 +73,9 @@ async def update_company(
 
 async def delete_company(db: AsyncSession, company_id: str) -> None:
     """Видалити компанію"""
-    company = await get_company(db, company_id)
+    result = await db.execute(select(Company).where(Company.company_id == company_id))
+    company = result.scalar_one_or_none()
+
     if not company:
         raise CompanyNotFoundError(f"Компанія {company_id} не знайдена")
     await db.delete(company)
