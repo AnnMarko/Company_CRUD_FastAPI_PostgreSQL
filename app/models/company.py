@@ -7,7 +7,7 @@ from sqlalchemy import String
 from app.db import Base
 
 
-class User(Base):
+class Company(Base):
     __tablename__ = "companies"
 
     company_id: Mapped[str] = mapped_column(
