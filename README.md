@@ -46,7 +46,8 @@ docker-compose up --build
 ### 4. Запустити міграції
 `
 alembic revision --autogenerate -m 'message'
-``
+`
+`
 alembic upgrade head
 `
 
