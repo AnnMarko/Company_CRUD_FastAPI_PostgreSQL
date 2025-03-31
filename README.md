@@ -47,6 +47,7 @@ docker-compose up --build
 `
 alembic revision --autogenerate -m 'message'
 `
+
 `
 alembic upgrade head
 `
