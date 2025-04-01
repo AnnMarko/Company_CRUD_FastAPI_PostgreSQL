@@ -28,16 +28,16 @@
 
 ### 1. Клонувати репозиторій
 `
-git clone https://github.com/AnnMarko/Company_CRUD_FastAPI_PostgreSQL.git  
+git clone https://github.com/AnnMarko/Company_CRUD_FastAPI_PostgreSQL.git   
 cd Company_CRUD_FastAPI_PostgreSQL
 `
 ### 2. Створити .env файл
 `
-POSTGRES_USER=postgres  
-POSTGRES_PASSWORD=postgres  
-POSTGRES_DB=company_db  
-POSTGRES_HOST=db  
-POSTGRES_PORT=5432  
+POSTGRES_USER=postgres   
+POSTGRES_PASSWORD=postgres   
+POSTGRES_DB=company_db   
+POSTGRES_HOST=db   
+POSTGRES_PORT=5432   
 `
 ### 3. Запустити за допомогою Docker
 `
